@@ -8,12 +8,10 @@ GPIO.setwarnings(False)
 GPIO.setup(17,GPIO.IN)
 GPIO.setup(27,GPIO.OUT)
 
+pinNum = input(" LED POSITIVE PIN NUMBER : ")
+
 while True:
-	if GPIO.input(17) == False:
+	if GPIO.input(pinNum) == True:
 		GPIO.output(27,GPIO.HIGH)
-		time.sleep(1)
-		print("The sytem will restart in 5 seconds, PRESS CTRL + C TO QUIT NOW...")
-		time.sleep(5)
-		os.system("shutdown now -r")
-	elif GPIO.input(17) == True:
+	elif GPIO.input(pinNum) == False:
 		GPIO.output(27,GPIO.LOW)
